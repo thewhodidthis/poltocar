@@ -4,7 +4,7 @@
 ### Setup
 ```sh
 npm install poltocar
-node example
+node node_modules/poltocar/example
 ```
 
 ### Usage
