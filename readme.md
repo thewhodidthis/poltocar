@@ -1,5 +1,5 @@
 ## Poltocar
-> Polar(angle, distance) to x, y
+> Angle, distance to x, y
 
 ### Setup
 ```sh
