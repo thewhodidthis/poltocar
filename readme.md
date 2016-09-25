@@ -1,5 +1,5 @@
 ## Poltocar
-> Poor man's polar to cartesian calculator
+> Poor man's polar to cartesian converter
 
 ### Setup
 ```sh
