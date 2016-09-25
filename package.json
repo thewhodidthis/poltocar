@@ -1,6 +1,6 @@
 {
   "name": "poltocar",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "polar to x, y",
   "keywords": [
     "",
@@ -54,4 +54,3 @@
   "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
   "license": "Unlicense"
 }
-
