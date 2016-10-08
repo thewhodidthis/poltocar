@@ -23,7 +23,7 @@
     "jscsrc": ".jscsrc"
   },
   "scripts": {
-    "test": "tape test",
+    "test": "node test",
     "clear": "npm run clear:dist && npm run clear:logs",
     "clear:dist": "rm -rf dist/",
     "clear:logs": "rm -f *.log",
