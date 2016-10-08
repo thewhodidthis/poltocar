@@ -10,9 +10,9 @@ const rl = readline.createInterface({
 
 rl.on('line', input => {
   let i = input.split(' ');
-  let a = parseInt(i[0]);
-  let r = parseInt(i[1]) || a;
+  let theta = i[0];
+  let r = i[1];
 
-  console.log(poltocar(a, r));
+  console.log(poltocar(r, theta));
 });
 
