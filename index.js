@@ -1,11 +1,11 @@
 'use strict';
 
-module.exports = function poltocar(a, r) {
-  var r = (r === undefined) ? 1 : r;
-  var a = parseInt(a, 10) || 0;
+module.exports = function poltocar(r, theta) {
+  var r = parseFloat(r) || 1;
+  var theta = (typeof theta !== 'undefined') ? parseFloat(theta) : r;
 
   return {
-    x: r * Math.cos(a),
-    y: r * Math.sin(a)
+    x: r * Math.cos(theta),
+    y: r * Math.sin(theta)
   };
 };
