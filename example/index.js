@@ -10,9 +10,13 @@ const rl = readline.createInterface({
 
 rl.on('line', input => {
   let i = input.split(' ');
-  let theta = i[0];
+
+  // Angle
+  let a = i[0];
+
+  // Vector size
   let r = i[1];
 
-  console.log(poltocar(r, theta));
+  console.log(poltocar(a, r));
 });
 
