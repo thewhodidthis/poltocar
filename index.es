@@ -1,6 +1,4 @@
-'use strict';
-
-function poltocar(theta, r) {
+export default function poltocar(theta, r) {
   var theta = parseFloat(theta) || 0;
   var r = parseFloat(r) || 1;
 
@@ -8,6 +6,5 @@ function poltocar(theta, r) {
     x: r * Math.cos(theta),
     y: r * Math.sin(theta)
   };
-}
+};
 
-module.exports = poltocar;

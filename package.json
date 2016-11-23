@@ -7,6 +7,7 @@
     "2",
     "pol"
   ],
+  "jsnext:main": "index.es",
   "main": "index.js",
   "homepage": "https://github.com/thewhodidthis/poltocar#readme",
   "repository": {
@@ -19,23 +20,22 @@
   "directories": {
     "example": "example"
   },
-  "config": {
-    "jscsrc": ".jscsrc"
-  },
   "scripts": {
     "test": "node test",
     "clear": "npm run clear:dist && npm run clear:logs",
     "clear:dist": "rm -rf dist/",
     "clear:logs": "rm -f *.log",
-    "lint": "(jshint index.js & jscs index.js --reporter=inlinesingle) 2>&1 | tee lint-js.log",
-    "postlint": "find lint-js.log -size 0 -print0 | xargs -0 rm",
+    "lint": "eslint index.es; exit 0",
     "start": "npm run watch",
-    "watch": "nodemon -e js -w index.js -x 'npm run build'",
+    "watch": "rollup -c -w",
     "preexample": "npm run build",
     "example": "node example",
+    "example:link": "ln -siv \"$(pwd)/dist/poltocar.min.js\" example/poltocar.js",
+    "example:push": "rsync -avruzLPC --exclude=.DS_Store ./example/ $npm_package_config_remote",
+    "example:serve": "php -S localhost:8000 -t example/",
     "prebuild": "mkdir -p dist/",
-    "build": "browserify index.js -s poltocar -o ./dist/poltocar.js",
-    "build:min": "browserify index.js -s poltocar | uglifyjs -mc -o ./dist/poltocar.min.js",
+    "build": "rollup -c",
+    "build:min": "uglifyjs dist/poltocar.js -cm > dist/poltocar.min.js",
     "postbuild": "npm run build:min",
     "preversion": "npm run clear && npm run build"
   },
@@ -45,12 +45,16 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "jscs": "latest",
-    "jshint": "latest",
-    "uglify-js": "latest",
-    "browserify": "latest",
-    "nodemon": "latest",
-    "tape": "latest"
+    "babel-eslint": "latest",
+    "babel-preset-es2015": "latest",
+    "eslint": "latest",
+    "eslint-plugin-import": "latest",
+    "eslint-config-airbnb-base": "latest",
+    "rollup": "latest",
+    "rollup-plugin-babel": "latest",
+    "rollup-watch": "latest",
+    "tape": "latest",
+    "uglify-js": "latest"
   },
   "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
   "license": "Unlicense"
