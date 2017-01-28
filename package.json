@@ -48,7 +48,6 @@
     "eslint-config-airbnb-base": "latest",
     "rollup": "latest",
     "rollup-plugin-babel": "latest",
-    "rollup-watch": "latest",
     "tape": "latest",
     "uglify-js": "latest"
   },
