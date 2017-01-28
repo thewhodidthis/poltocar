@@ -1,5 +1,3 @@
-'use strict';
-
 const test = require('tape');
 const poltocar = require('../');
 
