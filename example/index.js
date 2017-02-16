@@ -21,11 +21,11 @@ const toSvg = points => {
 
 const createPoint = i => {
   const rad = toRad(i);
-  const car = pol2car(rad);
+  const car = pol2car(rad, radius);
 
   return {
-    x: halfSize + (car.x * radius),
-    y: halfSize + (car.y * radius),
+    x: halfSize + car.x,
+    y: halfSize + car.y,
   };
 };
 
