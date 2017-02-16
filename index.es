@@ -1,7 +1,6 @@
-export default function poltocar(theta = 0, r = 1) {
-  return {
-    x: r * Math.cos(theta),
-    y: r * Math.sin(theta)
-  };
-}
+const poltocar = (t = 0, r = 1) => ({
+  x: r * Math.cos(t),
+  y: r * Math.sin(t)
+});
 
+export default poltocar;
