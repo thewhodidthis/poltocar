@@ -8,10 +8,11 @@ const concat = (acc, val) => acc + val;
 
 const size = 360;
 const halfSize = size * 0.5;
+const radius = size * 0.325;
 const filepath = './example/dial.svg';
 
-// http://stackoverflow.com/questions/17455436/is-there-a-way-to-convert-json-to-an-svg-object
 const svg = points => {
+  // http://stackoverflow.com/questions/17455436/is-there-a-way-to-convert-json-to-an-svg-object
   const node = point => `<circle cx="${point.x}" cy="${point.y}" r="2" fill="blue"/>`;
   const head = `<svg width="${size}px" height="${size}px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n`;
   const body = points.map(node).reduce(concat, '');
@@ -22,12 +23,11 @@ const svg = points => {
 
 const createPoint = i => {
   const rad = toRad(i);
-  const pol = pol2car(rad);
-  const r = halfSize * 0.75;
+  const car = pol2car(rad);
 
   return {
-    x: halfSize + (pol.x * r),
-    y: halfSize + (pol.y * r),
+    x: halfSize + (car.x * radius),
+    y: halfSize + (car.y * radius),
   };
 };
 
