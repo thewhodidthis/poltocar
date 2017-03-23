@@ -4,14 +4,13 @@ const fs = require('fs');
 const pol2car = require('../');
 
 const size = 360;
-const halfSize = size * 0.5;
-const radius = size * 0.325;
-const filepath = './example/dial.svg';
+const center = size * 0.5;
+const filepath = './example/rose.svg';
 
 const toRad = deg => deg * (Math.PI / 180);
 const toSvg = points => {
   // http://stackoverflow.com/questions/17455436/is-there-a-way-to-convert-json-to-an-svg-object
-  const node = point => `<circle cx="${point.x}" cy="${point.y}" r="2" fill="blue"/>`;
+  const node = point => `<circle cx="${point.x}" cy="${point.y}" r="1" fill="purple"/>`;
   const body = points.map(node).reduce((acc, val) => acc + val, '');
   const head = `<svg width="${size}px" height="${size}px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n`;
   const foot = `</svg>\n`;
@@ -19,19 +18,30 @@ const toSvg = points => {
   return head + body + foot;
 };
 
+const pairs = [
+  [2, 3],
+  [3, 1],
+  [4, 1],
+  [4, 3],
+  [5, 2],
+  [6, 4]
+];
+
+const [ n, d ] = pairs[Math.floor(Math.random() * pairs.length)];
+const k = n / d;
+
 const createPoint = i => {
-  const rad = toRad(i);
-  const car = pol2car(rad, radius);
+  const angle = toRad(i);
+  const radius = Math.cos(k * angle);
+  const point = pol2car(angle, radius);
 
   return {
-    x: halfSize + car.x,
-    y: halfSize + car.y,
+    x: center + (center - 2) * point.x,
+    y: center + (center - 2) * point.y,
   };
 };
 
-const total = 36;
-const step = 360 / Math.max(total, 1);
-const points = Array.from(Array(total)).map((v, i) => i * step).map(createPoint);
+const points = Array.from(Array(size * 2 * d)).map((v, i) => i * 0.5).map(createPoint);
 
 fs.writeFile(filepath, toSvg(points), (error) => {
   if (error) {
