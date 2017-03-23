@@ -2,7 +2,7 @@ var poltocar = (function () {
   'use strict';
 
   /**
-   * Polar to cartesian conversion
+   * Helps covert from polar
    * @module poltocar
    * @param {Number} t - Angle (theta)
    * @param {Number} r - Radius
