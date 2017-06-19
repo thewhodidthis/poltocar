@@ -1,5 +1,3 @@
-'use strict';
-
 const fs = require('fs');
 const pol2car = require('../');
 
@@ -8,12 +6,12 @@ const center = size * 0.5;
 const filepath = './example/rose.svg';
 
 const toRad = deg => deg * (Math.PI / 180);
-const toSvg = points => {
+const toSvg = (points) => {
   // http://stackoverflow.com/questions/17455436/is-there-a-way-to-convert-json-to-an-svg-object
   const node = point => `<circle cx="${point.x}" cy="${point.y}" r="1" fill="purple"/>`;
   const body = points.map(node).reduce((acc, val) => acc + val, '');
   const head = `<svg width="${size}px" height="${size}px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n`;
-  const foot = `</svg>\n`;
+  const foot = '</svg>\n';
 
   return head + body + foot;
 };
@@ -24,20 +22,23 @@ const pairs = [
   [4, 1],
   [4, 3],
   [5, 2],
-  [6, 4]
+  [6, 4],
 ];
 
-const [ n, d ] = pairs[Math.floor(Math.random() * pairs.length)];
+const seed = pairs[Math.floor(Math.random() * pairs.length)];
+const n = seed[0];
+const d = seed[1];
 const k = n / d;
 
-const createPoint = i => {
+const createPoint = (i) => {
   const angle = toRad(i);
   const radius = Math.cos(k * angle);
   const point = pol2car(angle, radius);
+  const correction = center - 2;
 
   return {
-    x: center + (center - 2) * point.x,
-    y: center + (center - 2) * point.y,
+    x: center + (correction * point.x),
+    y: center + (correction * point.y),
   };
 };
 
