@@ -22,16 +22,8 @@
   },
   "scripts": {
     "test": "node test",
-    "clear": "npm run clear:dist && npm run clear:logs",
-    "clear:dist": "rm -rf dist/",
-    "clear:logs": "rm -f *.log",
-    "lint": "eslint index.es; exit 0",
-    "start": "npm run build && npm run build:min",
-    "preexample": "npm start",
-    "example": "node example",
-    "build": "rollup -c",
-    "build:min": "uglifyjs dist/poltocar.js -cm > dist/poltocar.min.js",
-    "preversion": "npm start"
+    "lint": "eslint index.es",
+    "start": "rollup -c && uglifyjs dist/poltocar.js -cm > dist/poltocar.min.js"
   },
   "engines": {
     "node": ">=4.2.4",
@@ -42,7 +34,7 @@
     "babel-eslint": "latest",
     "babel-plugin-external-helpers": "latest",
     "babel-preset-es2015": "latest",
-    "eslint": "latest",
+    "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "latest",
     "eslint-plugin-import": "latest",
     "rollup": "latest",
