@@ -1,3 +1,8 @@
+/* eslint no-restricted-properties: [1, {
+    "object": "Math",
+    "property": "pow"
+}] */
+
 const test = require('tape');
 const pol2car = require('../');
 
@@ -13,7 +18,7 @@ test('return value compares with known result', (t) => {
 
   t.plan(2);
   t.equals(pol2car(Math.PI / 6).x - (Math.sqrt(3) / 2), theta);
-  t.equals((Math.sqrt(2) / -2) - pol2car(7 * Math.PI / 4).y, theta);
+  t.equals((Math.sqrt(2) / -2) - pol2car((7 * Math.PI) / 4).y, theta);
 });
 
 test('will not throw if misconfigured', (t) => {
