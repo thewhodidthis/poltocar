@@ -6,7 +6,7 @@ var poltocar = (function () {
  * @module poltocar
  * @param {Number} t - Angle (theta)
  * @param {Number} r - Radius
- * @returns {Object} - Vector
+ * @returns {Object} - Vector like
  * @example
  * poltocar(Math.PI);
  */
