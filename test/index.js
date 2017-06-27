@@ -1,8 +1,3 @@
-/* eslint no-restricted-properties: [1, {
-    "object": "Math",
-    "property": "pow"
-}] */
-
 const test = require('tape');
 const pol2car = require('../');
 
@@ -14,6 +9,7 @@ test('return value is of type and contains', (t) => {
 });
 
 test('return value compares with known result', (t) => {
+  /* eslint no-restricted-properties: [1, { "object": "Math", "property": "pow" }] */
   const theta = Math.pow(2, -53);
 
   t.plan(2);
