@@ -18,7 +18,6 @@ const toSvg = (points) => {
 
 const pairs = [
   [2, 3],
-  [3, 1],
   [4, 1],
   [4, 3],
   [5, 2],
