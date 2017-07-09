@@ -2,11 +2,6 @@
   "name": "poltocar",
   "version": "1.0.8",
   "description": "polar to x, y",
-  "keywords": [
-    "car",
-    "2",
-    "pol"
-  ],
   "main": "index.js",
   "module": "index.es",
   "homepage": "https://github.com/thewhodidthis/poltocar#readme",
@@ -17,13 +12,16 @@
   "bugs": {
     "url": "https://github.com/thewhodidthis/poltocar/issues"
   },
-  "directories": {
-    "example": "example"
-  },
   "scripts": {
+    "pretest": "eslint test.js",
     "test": "node test",
-    "lint": "eslint example test index.es",
-    "start": "rollup -c && uglifyjs dist/poltocar.js -cmo dist/poltocar.min.js"
+    "prestart": "eslint index.es",
+    "start": "rollup -f cjs index.es | buble > index.js",
+    "preexample": "eslint example.js",
+    "example": "node example"
+  },
+  "eslintConfig": {
+    "extends": "@thewhodidthis"
   },
   "engines": {
     "node": ">=4.2.4",
@@ -31,16 +29,10 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "babel-eslint": "latest",
-    "babel-plugin-external-helpers": "latest",
-    "babel-preset-latest": "latest",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "latest",
-    "eslint-plugin-import": "latest",
+    "@thewhodidthis/eslint-config": "latest",
+    "buble": "latest",
     "rollup": "latest",
-    "rollup-plugin-babel": "latest",
-    "tape": "latest",
-    "uglify-js": "latest"
+    "tape": "latest"
   },
   "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
   "license": "Unlicense"
