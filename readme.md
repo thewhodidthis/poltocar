@@ -3,8 +3,8 @@
 
 ### Setup
 ```sh
-# Install from npm
-npm install poltocar
+# Install from github
+npm install thewhodidthis/poltocar
 
 # Run example
 node node_modules/poltocar/example
@@ -14,4 +14,3 @@ node node_modules/poltocar/example
 ```js
 console.log(require('poltocar')());
 ```
-
