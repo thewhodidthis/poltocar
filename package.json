@@ -1,6 +1,6 @@
 {
   "name": "poltocar",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "polar to x, y",
   "main": "index",
   "module": "index.mjs",
