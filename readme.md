@@ -1,9 +1,8 @@
-## Poltocar
 > Poor man's polar to cartesian converter
 
 ### Setup
 ```sh
-# Install from github
+# Fetch latest from github
 npm install thewhodidthis/poltocar
 
 # Run example
