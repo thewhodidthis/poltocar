@@ -2,7 +2,7 @@
   "name": "poltocar",
   "version": "2.0.0",
   "description": "polar to x, y",
-  "main": "index.js",
+  "main": "index",
   "module": "index.mjs",
   "homepage": "https://github.com/thewhodidthis/poltocar#readme",
   "repository": {
@@ -33,7 +33,7 @@
     "buble": "latest",
     "eslint": "latest",
     "rollup": "latest",
-    "tape": "latest"
+    "tapeless": "latest"
   },
   "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
   "license": "Unlicense"
