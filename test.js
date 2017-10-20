@@ -1,31 +1,26 @@
 'use strict'
 
-const test = require('tape')
+const { equal, ok, deepEqual, fail } = require('tapeless')
 const pol2car = require('./')
 
-test('return value is of type and contains', (t) => {
-  t.plan(2)
+equal(typeof pol2car(), 'object', 'should be equal', 'return value is of type and contains')
+deepEqual(pol2car(0), { x: 1, y: 0 }, 'should be equivalent')
 
-  t.equal(typeof pol2car(), 'object')
-  t.deepEqual(pol2car(0), { x: 1, y: 0 })
-})
+/* eslint no-restricted-properties: [1, { "object": "Math", "property": "pow" }] */
+const expected = Math.pow(2, -53)
+const { x } = pol2car(Math.PI / 6)
+const t1 = x - (Math.sqrt(3) / 2)
 
-test('return value compares with known result', (t) => {
-  /* eslint no-restricted-properties: [1, { "object": "Math", "property": "pow" }] */
-  const theta = Math.pow(2, -53)
+equal(t1, expected, 'should be equal', 'return value compares with known result')
 
-  t.plan(2)
-  t.equals(pol2car(Math.PI / 6).x - (Math.sqrt(3) / 2), theta)
-  t.equals((Math.sqrt(2) / -2) - pol2car((7 * Math.PI) / 4).y, theta)
-})
+const { y } = pol2car((7 * Math.PI) / 4)
+const t2 = (Math.sqrt(2) / -2) - y
 
-test('will not throw if misconfigured', (t) => {
-  try {
-    pol2car(undefined, Infinity)
-    t.pass('should not throw')
-  } catch (e) {
-    t.fail()
-  }
+equal(t2, expected, 'should be equal')
 
-  t.end()
-})
+try {
+  pol2car(undefined, Infinity)
+  ok(true, 'should not throw', 'will not throw if misconfigured')
+} catch (e) {
+  fail()
+}
