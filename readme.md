@@ -3,7 +3,7 @@
 ### Setup
 ```sh
 # Fetch latest from github
-npm install thewhodidthis/poltocar
+npm i thewhodidthis/poltocar
 
 # Run example
 node node_modules/poltocar/example
