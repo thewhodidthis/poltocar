@@ -12,15 +12,16 @@ const mid = mag * 0.5
 const ostmpdir = os.tmpdir()
 const filepath = `${ostmpdir}/rose.svg`
 
-const toRad = deg => deg * (Math.PI / 180)
-const toSvg = (points) => {
+const rad = deg => deg * (Math.PI / 180)
+const svg = (points) => {
   // http://stackoverflow.com/questions/17455436/is-there-a-way-to-convert-json-to-an-svg-object
-  const node = point => `<circle cx="${point.x}" cy="${point.y}" r="1" fill="purple"/>`
-  const body = points.map(node).reduce((acc, val) => acc + val, '')
+  const node = point => `<circle cx="${point.x}" cy="${point.y}" r="1" fill="white"/>`
   const head = `<svg width="${mag}px" height="${mag}px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n`
+  const back = `<rect width="${mag}px" height="${mag}px" fill="black"/>`
+  const body = points.map(node).reduce((acc, val) => acc + val, '')
   const foot = '</svg>\n'
 
-  return head + body + foot
+  return head + back + body + foot
 }
 
 const pairs = [
@@ -31,14 +32,13 @@ const pairs = [
   [6, 4]
 ]
 
-const seed = pairs[Math.floor(Math.random() * pairs.length)]
-const n = seed[0]
-const d = seed[1]
+const s = Math.floor(Math.random() * pairs.length)
+const [n, d] = pairs[s]
 const k = n / d
 
 const createPoint = (i) => {
   const space = mid - 2
-  const angle = toRad(i)
+  const angle = rad(i)
   const reach = Math.cos(k * angle)
 
   const { x, y } = pol2car(angle, reach)
@@ -51,7 +51,7 @@ const createPoint = (i) => {
 
 const points = Array.from(Array(mag * 2 * d)).map((v, i) => i * 0.5).map(createPoint)
 
-fs.writeFile(filepath, toSvg(points), (error) => {
+fs.writeFile(filepath, svg(points), (error) => {
   if (error) {
     console.error(error)
   } else {
