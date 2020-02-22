@@ -11,5 +11,5 @@ node node_modules/poltocar/example
 
 ### Usage
 ```js
-console.log(require('poltocar')());
+console.log(require('poltocar')())
 ```
