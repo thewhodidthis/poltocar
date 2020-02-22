@@ -20,4 +20,3 @@ var poltocar = function (t, r) {
 };
 
 module.exports = poltocar;
-
