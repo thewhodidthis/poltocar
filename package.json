@@ -2,42 +2,43 @@
   "name": "poltocar",
   "version": "2.0.5",
   "description": "polar to x, y",
-  "main": "index",
-  "module": "index.mjs",
-  "homepage": "https://github.com/thewhodidthis/poltocar#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/thewhodidthis/poltocar.git"
-  },
-  "bugs": {
-    "url": "https://github.com/thewhodidthis/poltocar/issues"
-  },
-  "scripts": {
-    "pretest": "eslint test.js",
-    "test": "node test",
-    "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs index.mjs | buble > index.js",
-    "preexample": "eslint example.js",
-    "example": "node example"
-  },
-  "eslintConfig": {
-    "extends": "@thewhodidthis"
-  },
-  "engines": {
-    "node": ">=4.2.4",
-    "npm": ">=3.5.3"
-  },
-  "devDependencies": {
-    "@thewhodidthis/eslint-config": "^0.0.11",
-    "buble": "^0.19.8",
-    "eslint": "^6.8.0",
-    "rollup": "^1.31.0",
-    "tapeless": "^0.0.7"
-  },
   "keywords": [
     "math",
     "trigonometry"
   ],
-  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
-  "license": "Unlicense"
+  "homepage": "https://github.com/thewhodidthis/poltocar#readme",
+  "bugs": {
+    "url": "https://github.com/thewhodidthis/poltocar/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewhodidthis/poltocar.git"
+  },
+  "license": "ISC",
+  "author": "Sotiri Bakagiannis <sotirios.bakagiannis@gmail.com> (http://thewhodidthis.com)",
+  "main": "index",
+  "module": "index.mjs",
+  "scripts": {
+    "preexample": "eslint example.js",
+    "example": "node example",
+    "prestart": "eslint index.mjs",
+    "start": "rollup -f cjs index.mjs | buble -o index.js",
+    "pretest": "eslint test.js",
+    "test": "node test"
+  },
+  "eslintConfig": {
+    "extends": "@thewhodidthis"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/eslint-config": "^0.0.17",
+    "buble": "^0.19.8",
+    "eslint": "^6.8.0",
+    "rollup": "^1.31.1",
+    "tapeless": "^0.0.10"
+  },
+  "engines": {
+    "node": ">=4.2.4",
+    "npm": ">=3.5.3"
+  }
 }
