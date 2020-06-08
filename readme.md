@@ -1,15 +1,30 @@
-> Poor man's polar to cartesian converter
+## about
 
-### Setup
+Poor man's polar to cartesian converter.
+
+## setup
+
+Fetch latest from GitHub:
+
 ```sh
-# Fetch latest from github
-npm i thewhodidthis/poltocar
+# Add to 'package.json' dependencies
+npm install thewhodidthis/poltocar
+```
 
-# Run example
+## usage
+
+Try the example:
+
+```sh
 node node_modules/poltocar/example
 ```
 
-### Usage
+Give it an angle and a radius, get an `{ x, y }` object in return.
+
 ```js
 console.log(require('poltocar')())
 ```
+
+## see also
+
+- [cartopol](https://github.com/thewhodidthis/cartopol)
