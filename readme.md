@@ -4,11 +4,11 @@ Poor man's polar to cartesian converter.
 
 ## setup
 
-Fetch latest from GitHub:
+Find the [latest version](https://npm.im/poltocar) on the _npm_ registry:
 
 ```sh
 # Add to 'package.json' dependencies
-npm install thewhodidthis/poltocar
+npm install @thewhodidthis/poltocar
 ```
 
 ## usage
@@ -19,7 +19,7 @@ Try the example:
 node node_modules/poltocar/example
 ```
 
-Give it an angle and a radius, get an `{ x, y }` object in return.
+Give it _angular_ and _radial_ coordinates, get an `{ x, y }` object literal in return.
 
 ```js
 console.log(require('poltocar')())
