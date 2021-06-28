@@ -8,7 +8,7 @@ Download from the _npm_ registry:
 
 ```sh
 # Add to package.json
-npm install @thewhodidthis/poltocar
+npm install poltocar
 ```
 
 Source from an import map to use with Deno or in-browser directly:
