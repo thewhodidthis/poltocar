@@ -16,29 +16,18 @@
   },
   "license": "ISC",
   "author": "Sotiri Bakagiannis <sotirios.bakagiannis@gmail.com> (http://thewhodidthis.com)",
-  "main": "index",
-  "module": "index.mjs",
+  "type": "module",
+  "exports": "./main.js",
+  "main": "./main.js",
   "scripts": {
-    "preexample": "eslint example.js",
-    "example": "node example",
-    "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs index.mjs | buble -o index.js",
-    "pretest": "eslint test.js",
-    "test": "node test"
+    "start": "node example.js",
+    "test": "node test.js"
   },
-  "eslintConfig": {
-    "extends": "@thewhodidthis"
-  },
-  "dependencies": {},
   "devDependencies": {
-    "@thewhodidthis/eslint-config": "^0.1.6",
-    "buble": "^0.20.0",
-    "eslint": "^7.3.1",
-    "rollup": "^2.18.0",
-    "tapeless": "^0.0.11"
+    "tapeless": "^2.0.1"
   },
   "engines": {
-    "node": ">=4.2.4",
-    "npm": ">=3.5.3"
+    "node": ">=14.17.0",
+    "npm": ">=6.14.13"
   }
 }
