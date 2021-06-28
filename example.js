@@ -1,9 +1,10 @@
 'use strict'
 
-const { exec } = require('child_process')
-const fs = require('fs')
-const os = require('os')
-const bender = require('./')
+import { exec } from 'child_process'
+import fs from 'fs'
+import process from 'process'
+import os from 'os'
+import bender from './main.js'
 
 const DEG = Math.PI / 180
 
@@ -47,14 +48,14 @@ const createPoint = (i) => {
   }
 }
 
-const data = Array.from({ length: mag * d }).map((v, i) => i).map(createPoint)
+const data = Array.from({ length: mag * d }).map((_, i) => i).map(createPoint)
 const path = `${os.tmpdir()}/rose.svg`
 
 fs.writeFile(path, svg(data), (e) => {
   if (e) {
     console.error(e)
   } else {
-    exec(`open -a "Google Chrome" ${path}`)
+    exec(`open ${path}`)
   }
 
   process.exit()
