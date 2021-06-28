@@ -1,17 +1,16 @@
-'use strict'
+import { assert, report } from 'tapeless'
+import bender from './main.js'
 
-const { equal, ok, deepEqual, fail } = require('tapeless')
-const bender = require('./')
+const { equal, ok } = assert
 
 equal
   .describe('should be equal')
   .test(typeof bender(), 'object')
 
-deepEqual
+equal
   .describe('should be equivalent', 'return value is of type and contains')
-  .test(bender(0), { x: 1, y: 0 })
+  .test(JSON.stringify(bender(0)), JSON.stringify({ x: 1, y: 0 }))
 
-/* eslint no-restricted-properties: [1, { "object": "Math", "property": "pow" }] */
 const expected = Math.pow(2, -53)
 const { x } = bender(Math.PI / 6)
 const t1 = x - (Math.sqrt(3) / 2)
@@ -33,5 +32,7 @@ try {
     .describe('should not throw', 'will not throw if misconfigured')
     .test(true)
 } catch (e) {
-  fail()
+  throw e
 }
+
+report()
