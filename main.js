@@ -9,7 +9,7 @@
  */
 const poltocar = (a = 0, r = 1) => ({
   x: r * Math.cos(a),
-  y: r * Math.sin(a)
+  y: r * Math.sin(a),
 })
 
 export default poltocar

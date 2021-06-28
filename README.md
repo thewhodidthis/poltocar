@@ -32,7 +32,7 @@ node node_modules/poltocar/example
 Give it _angular_ and _radial_ coordinates, get an `{ x, y }` object literal in return.
 
 ```js
-import('poltocar').then(m => console.log(m.default()))
+import("poltocar").then(m => console.log(m.default()))
 ```
 
 ## see also

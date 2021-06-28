@@ -1,10 +1,10 @@
-'use strict'
+"use strict"
 
-import { exec } from 'child_process'
-import fs from 'fs'
-import process from 'process'
-import os from 'os'
-import bender from './main.js'
+import { exec } from "child_process"
+import fs from "fs"
+import os from "os"
+import process from "process"
+import bender from "./main.js"
 
 const DEG = Math.PI / 180
 
@@ -17,9 +17,9 @@ const svg = (data) => {
 
   const head = `<svg width="${mag}px" height="${mag}px" version="1.1" xmlns="http://www.w3.org/2000/svg">\n`
   const back = `<rect width="${mag}px" height="${mag}px" fill="black"/>`
-  const foot = '</svg>\n'
+  const foot = "</svg>\n"
 
-  const body = data.map(node).reduce((acc, val) => acc + val, '')
+  const body = data.map(node).reduce((acc, val) => acc + val, "")
 
   return head + back + body + foot
 }
@@ -30,7 +30,7 @@ const feed = [
   [4, 1],
   [4, 3],
   [5, 2],
-  [6, 4]
+  [6, 4],
 ]
 
 const [n, d] = feed[seed(feed)]
@@ -44,7 +44,7 @@ const createPoint = (i) => {
 
   return {
     x: mid + (space * x),
-    y: mid + (space * y)
+    y: mid + (space * y),
   }
 }
 
